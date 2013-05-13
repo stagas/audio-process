@@ -8,11 +8,10 @@
     <script src="../build/build.js"></script>
     <script>
     var process = require('audio-process');
-    
     var audio = new webkitAudioContext();
 
-    var node = process(audio, 1024, function(L, R){
-      for(var i=0; i<L.length; i++){
+    var node = process(audio, 2048, function(L, R, length, ev){
+      for(var i=0; i<length; i++){
         L[i] = Math.random()*0.5;
         R[i] = L[i];
       }
