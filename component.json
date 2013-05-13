@@ -1,6 +1,6 @@
 {
   "name": "audio-process",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "creates a webaudio script process input node",
   "keywords": ["audio","webaudio","input","process"],
   "author": "stagas",
