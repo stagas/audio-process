@@ -1,16 +1,16 @@
 
 /**
  * Create a stereo script processor node `fn`
- * for `context` with sample size `samples`.
+ * for `context` with sample `length`.
  *
  * @param {AudioContext} context
- * @param {Number} samples 
+ * @param {Number} length
  * @param {Function} fn
  * @return {AudioNode}
  */
 
-module.exports = function(context, samples, fn){
-  var node = context.createScriptProcessor(samples, 1, 2);
+module.exports = function(context, length, fn){
+  var node = context.createScriptProcessor(length, 1, 2);
   node.onaudioprocess = onaudioprocess;
 
   return node;
@@ -19,6 +19,7 @@ module.exports = function(context, samples, fn){
     fn(
       ev.outputBuffer.getChannelData(0)
     , ev.outputBuffer.getChannelData(1)
+    , ev.outputBuffer.length
     , ev
     );
   }
